@@ -17,7 +17,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Nilai  {
     @Id
-    @GeneratedValue
     private long kode_mk;
 
     @Column(length=12)
