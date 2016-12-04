@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Hello, world!</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<a href="/" class="btn btn-primary">Back</a>
+				<a href="/tingkat/input" class="btn btn-primary">Input</a>
+			</div>
+		</div>
+		<table class="table">
+
+			<tr>
+				<th>ID</th>
+				<th>Tingkat</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			<tr th:each="tingkat : ${tingkatmodel}">
+				<td th:text="${tingkat.id}"></td>
+				<td th:text="${tingkat.nama}"></td>
+				<td><a th:href="@{/tingkat/edit/{id}(id=${tingkat.id})}"
+					class="btn btn-info">Edit</a></td>
+				<td>
+					<form th:action="@{/tingkat/delete/{id}(id=${tingkat.id})}"
+						method="post">
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+
+</body>
+</html>

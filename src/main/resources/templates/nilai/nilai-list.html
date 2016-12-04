@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nilai Mahasiswa</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+</head>
+
+<body>
+&nbsp;
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/" class="btn btn-default">Back</a>
+        </div>
+    </div>
+    <h3 class="text-center">Nilai Mahasiswa.</h3>
+    &nbsp;
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="filterSemester">Pilih Semester.</label>
+        <div class="col-sm-2">
+            <select class="form-control" id="filterSemester">
+                <option>Ganjil</option>
+                <option>Genap</option>
+            </select>
+        </div>
+    </div>
+    &nbsp;&nbsp;
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="filterTahun">Pilih Tahun Ajaran.</label>
+        <div class="col-sm-2">
+            <select class="form-control" id="filterTahun">
+                <option>2014/2015</option>
+                <option>2015/2016</option>
+                <option>2016/2017</option>
+            </select>
+        </div>
+    </div>
+    &nbsp;&nbsp;
+    <table class="table table-striped">
+
+        <tr>
+            <th>Kode MK</th>
+            <th>NIP Dosen</th>
+            <th>NRP Mhs</th>
+            <th>Nilai</th>
+            <th>Semester</th>
+            <th>Tahun Ajaran</th>
+            <!--<th>Edit</th>-->
+            <!--<th>Delete</th>-->
+        </tr>
+        <tr th:each="nilai : ${nilaimodel}">
+            <td th:text="${nilai.kode_mk}"></td>
+            <td th:text="${nilai.nip_dosen}"></td>
+            <td th:text="${nilai.nrp}"></td>
+            <td th:text="${nilai.nilai}"></td>
+            <td th:text="${nilai.semester}"></td>
+            <td th:text="${nilai.tahun_ajaran}"></td>
+            <!--<td><a th:href="@{/nilai/edit/{id}(id=${nilai.kode_mk})}"-->
+                   <!--class="btn btn-info">Edit</a></td>-->
+            <!--<td>-->
+                <!--<form th:action="@{/nilai/delete/{id}(id=${nilai.kode_mk})}"-->
+                      <!--method="post">-->
+                    <!--<button type="submit" class="btn btn-danger">Delete</button>-->
+                <!--</form>-->
+            <!--</td>-->
+        </tr>
+
+    </table>
+</div>
+
+</body>
+</html>

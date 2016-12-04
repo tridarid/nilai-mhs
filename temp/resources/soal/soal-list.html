@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Hello, world!</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<a href="/" class="btn btn-primary">Back</a>	
+				<a href="/soal/input" class="btn btn-primary">Input</a>
+			</div>
+		</div>
+		<table class="table">
+	
+			<tr>
+				<th>ID</th>
+				<th>Bidang</th>
+				<th>Tingkat</th>
+				<th>Soal</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			<tr th:each="soal : ${soalmodel}">
+				<td th:text="${soal.id}"></td>
+				<td th:text="${soal.bidang}"></td>
+				<td th:text="${soal.tingkat}"></td>
+				<td th:text="${soal.textSoal}"></td>
+				<td><a th:href="@{/soal/edit/{id}(id=${soal.id})}"
+					class="btn btn-info">Edit</a></td>
+				<td>
+					<form th:action="@{/soal/delete/{id}(id=${soal.id})}"
+						method="post">
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</td>
+			</tr>
+	
+		</table>
+	</div>
+
+</body>
+</html>

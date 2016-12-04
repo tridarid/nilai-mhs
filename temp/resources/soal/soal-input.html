@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Hello, world!</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<a href="/soal/list" class="btn btn-primary">Back</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<form th:action="@{/soal/save}" th:object="${soal}" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1">ID</label> 
+						<input
+							type="text" class="form-control" id="exampleInputEmail1"
+							placeholder="0" th:field="*{id}"/>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Bidang</label>
+						<select class="form-control" th:field="*{bidang}">
+							<option th:each="bidang : ${bidangmodels}" th:value="${bidang.id}" th:text="${bidang.nama}">1</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Tingkat</label>
+						<select class="form-control" th:field="*{tingkat}">
+							<option th:each="tingkat : ${tingkatmodels}" th:value="${tingkat.id}" th:text="${tingkat.nama}">1</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1">Text Soal</label> 
+						<input
+							type="text" class="form-control" id="exampleInputPassword1"
+							placeholder="Text Soal" th:field="*{textSoal}"/>
+					</div>
+					<button type="submit" class="btn btn-default">Simpan</button>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
